@@ -1,0 +1,75 @@
+:root{ --bg:#0c0a1a; --bg2:#14102a; --card:#18132a; --text:#f5f7ff; --muted:#b8b8d1; --primary-start:#9b5cff; --primary-end:#ff8a3d; --ring: 0 0 0 3px rgba(255,138,61,.35); }
+*, *::before, *::after { box-sizing: border-box; } html, body { height: 100%; }
+body { margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans"; color:var(--text); background: radial-gradient(1200px 1200px at 10% 10%, #17122b 0%, var(--bg) 60%); overflow-x:hidden; }
+body::before{ content:""; position:fixed; inset:0; z-index:-2; background: radial-gradient(80% 60% at 80% 20%, rgba(255,138,61,.12), transparent 60%), radial-gradient(60% 60% at 20% 80%, rgba(155,92,255,.12), transparent 60%), linear-gradient(180deg, var(--bg), var(--bg2)); animation: bgPulse 12s ease-in-out infinite; }
+@keyframes bgPulse{ 0%,100%{ filter: hue-rotate(0deg) brightness(1); } 50%{ filter: hue-rotate(10deg) brightness(1.05); } }
+
+.no-select { user-select: none; }
+.hero{ min-height:100dvh; display:grid; place-items:center; padding:3rem 1rem; }
+.hero__inner{ width:min(1200px,96%); display:grid; gap:1.2rem; justify-items:center; text-align:center; }
+.title { font-size: clamp(2.2rem, 4.2vw, 3.5rem); line-height:1.1; margin:0; }
+.subtitle { color:var(--muted); margin:.4rem 0 0; }
+.footer { text-align:center; padding:2rem 0 3rem; color:var(--muted); }
+
+.card{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) , var(--card); border:1px solid rgba(255,255,255,.08); border-radius:1rem; padding:1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,.25); width:min(100%, 900px); position:relative; }
+.intro p{ color:var(--muted); }
+
+.countdown-wrap{ width:min(100%, 900px); } .countdown-title{ margin:0 0 .6rem; font-size:1.2rem; color:var(--muted); }
+.countdown{ display:flex; gap:.6rem; align-items:end; justify-content:center; flex-wrap:wrap; }
+.cd-item{ display:grid; justify-items:center; background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); padding:.6rem .8rem; border-radius:.8rem; min-width:70px; }
+.cd-item span{ font-variant-numeric: tabular-nums; font-size: clamp(1.6rem, 3vw, 2rem); font-weight:800; background: linear-gradient(90deg, var(--primary-start), var(--primary-end)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.cd-item small{ color: var(--muted); margin-top:.2rem; } .cd-sep{ font-weight:700; opacity:.6; align-self:center; }
+
+.hearts-cloud { display:flex; gap:.5rem; font-size:1.6rem; }
+.hearts { filter: drop-shadow(0 2px 6px rgba(255,138,61,.35)); }
+
+.btn{ display:inline-flex; align-items:center; justify-content:center; padding:1rem 1.4rem; border-radius:.9rem; border:1px solid transparent; background:linear-gradient(90deg, var(--primary-start), var(--primary-end)); color:#0b0b0b; font-weight:800; letter-spacing:.2px; cursor:pointer; text-decoration:none; transition: transform .06s ease, box-shadow .2s ease, opacity .2s ease; box-shadow: 0 10px 20px rgba(155,92,255,.25), 0 8px 18px rgba(255,138,61,.18); }
+.btn:hover{ transform: translateY(-1px); } .btn:active{ transform: translateY(1px); } .btn:focus-visible{ outline: none; box-shadow: var(--ring); }
+.btn--ghost{ background: rgba(255,255,255,.04); color:var(--text); border-color: rgba(255,255,255,.18); box-shadow: none; }
+.btn--big{ font-size:1.05rem; }
+
+.center{ display:grid; place-items:center; min-height:100dvh; padding:2rem 1rem; } .full{ width:100%; }
+.ask{ text-align:center; padding:2rem; }
+.ask__title{ font-size: clamp(1.8rem, 4vw, 2.4rem); margin:0 0 1rem; min-height:2.6rem; }
+.ask__buttons{ display:flex; gap:1rem; align-items:center; justify-content:center; margin: 1.2rem 0 0; flex-wrap:wrap; }
+.hint{ color:var(--muted); margin:.8rem 0 0; }
+
+/* Gracias (estilo v3) */
+.thankyou{ text-align:center; padding:2rem; }
+.msg{ color:var(--text); font-size:1.1rem; white-space:pre-line; }
+.big-hearts{ font-size:2rem; display:flex; gap:.5rem; justify-content:center; margin:1rem 0 1.4rem; }
+
+/* Movimiento suave del cuadro (card) */
+.thankyou--float{ animation: floatCard 7s ease-in-out infinite, glowSoft 3.8s ease-in-out infinite; }
+@keyframes floatCard{ 0%,100%{ transform: translateY(0) rotate(-0.6deg); } 50%{ transform: translateY(-8px) rotate(0.6deg); } }
+@keyframes glowSoft{ 0%,100%{ box-shadow: 0 10px 30px rgba(0,0,0,.25); } 50%{ box-shadow: 0 16px 40px rgba(0,0,0,.28); } }
+
+/* Sello "Aceptado" */
+.stamp{
+  position:absolute; right:18px; bottom:16px; padding:.4rem .7rem; border:3px solid #e63946; color:#e63946;
+  text-transform:uppercase; font-weight:900; letter-spacing:1.5px; border-radius:6px;
+  transform: scale(1.6) rotate(-12deg); opacity:0; filter: drop-shadow(0 4px 10px rgba(0,0,0,.35));
+  background: rgba(230,57,70,.08);
+}
+.is-stamped .stamp{ animation: stampIn .4s cubic-bezier(.2,.9,.23,1) forwards, stampPulse 1.6s ease .45s 1; }
+@keyframes stampIn{ 0%{ transform: scale(1.6) rotate(-12deg); opacity:0; } 100%{ transform: scale(1) rotate(-12deg); opacity:1; } }
+@keyframes stampPulse{ 0%{ box-shadow: 0 0 0 0 rgba(230,57,70,.45); } 100%{ box-shadow: 0 0 0 14px rgba(230,57,70,0); } }
+
+/* Floating confetti */
+.bg-floating{ position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: -1; }
+.float { position:absolute; opacity:.85; animation: rise var(--dur) linear infinite; will-change: transform; }
+@keyframes rise{ 0%{ transform: translateY(110vh) translateX(var(--x)) rotate(0deg); opacity:.0; } 10%{ opacity:.85; } 100%{ transform: translateY(-10vh) translateX(calc(var(--x) * -1)) rotate(360deg); opacity:0; } }
+
+.edge{ position:fixed; inset:0; pointer-events:none; z-index:-1; }
+.sticker{ position:absolute; opacity:.9; filter: drop-shadow(0 6px 16px rgba(0,0,0,.35)); animation: floaty var(--t,8s) ease-in-out infinite; }
+@keyframes floaty{ 0%,100%{ transform: translateY(0) rotate(0deg); } 50%{ transform: translateY(-12px) rotate(4deg); } }
+.sticker--1{ width:80px; left:4vw; top:12vh; --t:7s; } .sticker--2{ width:70px; right:6vw; top:18vh; --t:9s; }
+.sticker--3{ width:70px; left:10vw; bottom:14vh; --t:11s; } .sticker--4{ width:60px; right:8vw; bottom:12vh; --t:8s; } .sticker--5{ width:90px; left:45vw; top:6vh; --t:10s; }
+
+/* Typewriter (para otras páginas) */
+.typewriter{ min-height:2.2em; font-size: clamp(1.2rem, 3.5vw, 1.6rem); font-weight:700; letter-spacing:.3px; }
+.tw-cursor{ display:inline-block; width:1ch; color:var(--text); animation: blink 1s steps(1) infinite; }
+@keyframes blink{ 0%,49%{opacity:1;} 50%,100%{opacity:0;} }
+
+/* Runaway No */
+.runaway{ position:relative; }

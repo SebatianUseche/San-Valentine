@@ -1,0 +1,1 @@
+function typeWriter(el, text, { speed = 50, cursor = true } = {}){ el.innerHTML=''; let i=0; const c=document.createElement('span'); c.className='tw-cursor'; c.textContent='|'; if(cursor) el.appendChild(c); (function step(){ if(i<text.length){ c.insertAdjacentText('beforebegin', text[i++]); setTimeout(step, speed+Math.random()*60); } })(); }
