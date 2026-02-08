@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>¿Puedo ser tu San Valentine?</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="theme no-select">
+  <div class="bg-floating" aria-hidden="true"></div>
+
+  <main class="center full">
+    <section class="ask card">
+      <h1 class="ask__title" id="ask-title"></h1>
+
+      <div class="ask__buttons">
+        <a class="btn btn--big" href="gracias.html" aria-label="Sí, aceptar">Sí 💜🧡</a>
+        <button id="btn-no" class="btn btn--ghost btn--big runaway" type="button" aria-label="No" data-activated="false">No 😅</button>
+      </div>
+
+      <p class="hint">Hagase y oprima el <strong>No</strong> , o bueno si es que puedes.</p>
+
+      <div class="mini-countdown">
+        <h2 class="countdown-title">Faltan:</h2>
+        <div id="countdown" class="countdown" role="timer" aria-label="Cuenta regresiva a San Valentín"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/confetti.js"></script>
+  <script src="assets/js/no-button.js"></script>
+  <script src="assets/js/countdown.js"></script>
+  <script src="assets/js/typewriter.js"></script>
+  <script src="assets/js/click-hearts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.getElementById('ask-title');
+      if (el) typeWriter(el, '¿Puedo ser tu San Valentine?', { speed: 65, cursor: true });
+    });
+  </script>
+</body>
+</html>

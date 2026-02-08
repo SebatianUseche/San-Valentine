@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>¡Gracias, Mi Solecito! 💜🧡</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="theme">
+  <div class="bg-floating" aria-hidden="true"></div>
+
+  <main class="center full">
+    <section class="card thankyou thankyou--float" id="ty-card">
+      <h1>¡Gracias Mi Solecito 💜🧡 por aceptar! 💕</h1>
+      <p class="msg">
+        Eres la mejor persona del mundo y me haces muy feliz.
+        
+        ¡Te quiero infinitamente Mi Solecito ☀️!
+
+        De: Tu Pequeño saltamontes.
+      </p>
+
+      <div class="big-hearts" aria-hidden="true">
+        <span>💜</span><span>🧡</span><span>💜</span><span>🧡</span>
+      </div>
+
+      <div class="stamp" aria-hidden="true">Aceptado 💌</div>
+
+      <a class="btn" href="index.html" aria-label="Volver al inicio">Inicio</a>
+    </section>
+  </main>
+
+  <script src="assets/js/confetti.js"></script>
+  <script src="assets/js/click-hearts.js"></script>
+  <script>
+    // Animar el sello al final
+    document.addEventListener('DOMContentLoaded', () => {
+      const card = document.getElementById('ty-card');
+      setTimeout(() => card?.classList.add('is-stamped'), 900);
+    });
+  </script>
+</body>
+</html>

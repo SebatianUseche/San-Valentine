@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Para Mi Solecito 💜🧡 — 14 de febrero</title>
+  <meta name="description" content="Una sorpresa para Mi Solecito en San Valentín" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="theme">
+  <div class="bg-floating" aria-hidden="true"></div>
+  <div class="edge" aria-hidden="true">
+    <img class="sticker sticker--1" src="assets/img/heart.svg" alt=""/>
+    <img class="sticker sticker--2" src="assets/img/tulip.svg" alt=""/>
+    <img class="sticker sticker--3" src="assets/img/butterfly.svg" alt=""/>
+    <img class="sticker sticker--4" src="assets/img/star.svg" alt=""/>
+    <img class="sticker sticker--5" src="assets/img/heart.svg" alt=""/>
+  </div>
+
+  <main class="hero">
+    <div class="hero__inner">
+      <h1 class="title">Para Mi Solecito <span class="hearts">💜🧡</span></h1>
+      <p class="subtitle">Una pequeña sorpresa hecha con mucho cariño</p>
+
+      <section class="card intro">
+        <p>
+          Preparé esto para una personita muy especial para mi ✨🦋.<br/>
+          ¿Lista para comenzar esta aventura del 14 de febrero?
+        </p>
+        <a class="btn btn--big" href="pregunta.html" aria-label="Comenzar sorpresa">💌 Comenzar</a>
+      </section>
+
+      <section class="card surprise">
+        <h2 class="countdown-title">💜🧡</h2>
+        <div class="typewriter" id="surprise" data-text="Nuestro primer 14 de Febrero JUNTOS"></div>
+        <button class="btn btn--ghost btn--big" id="reveal">Ver mensaje ✨</button>
+      </section>
+
+      <section class="card countdown-wrap" aria-live="polite">
+        <h2 class="countdown-title">Cuenta regresiva para el 14 de Febrero</h2>
+        <div id="countdown" class="countdown" role="timer" aria-label="Cuenta regresiva a San Valentín"></div>
+      </section>
+
+      <div class="hearts-cloud" aria-hidden="true">
+        <span>💜</span><span>🧡</span><span>💜</span><span>🧡</span><span>💜</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <small>Hecho con 💜🧡 por tu Pequeño Saltamontes</small>
+  </footer>
+
+  <script src="assets/js/confetti.js"></script>
+  <script src="assets/js/countdown.js"></script>
+  <script src="assets/js/typewriter.js"></script>
+  <script src="assets/js/click-hearts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('reveal');
+      const el = document.getElementById('surprise');
+      if (btn && el) {
+        btn.addEventListener('click', () => {
+          btn.disabled = true;
+          typeWriter(el, el.dataset.text, { speed: 60, cursor: true });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
